@@ -2,9 +2,45 @@
 
 {% block title%}About Us{% endblock%}
 
+   {% include "navbar.html" %}
 
 {% block content %}
 
 <h1>This is the about page</h1>
+
+<p>{{ info }}, {{ Num_workers }} </p> 
+
+<ul>
+    {% for employee in mylist%}
+            
+        <li> {{ forloop.counter }} {{  employee  }}</li>
+
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for num in numbs%}
+
+    {% if num <= 100%}
+
+        <p>This number is between 0 to 100</p>
+            
+        <li> {{ num }}</li>
+
+    {% elif num > 100 %}
+
+        <p>This numbers are > 100</p>
+            
+        <li> {{ num }}</li>
+
+    {% else %}
+     
+        <li> {{num|add:1000}} </li>
+
+    {% endif%}
+
+
+    {% endfor %}
+<ul>
 
 {% endblock%}
